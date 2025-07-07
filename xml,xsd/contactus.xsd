@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           xmlns="https://www.w3schools.com"
+           elementFormDefault="qualified">
+
+  <xs:element name="contactus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="details" type="customerdetails"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="customerdetails">
+    <xs:sequence>
+      <xs:element name="cust_fullname">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="cust_age">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="cust_birthdate">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}/\d{2}/\d{4}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+	 <xs:element name="email">
+		<xs:simpleType>
+		  <xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	 </xs:element>
+
+      <xs:element name="hpno">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{10,11}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="haveyoupurchasebefore">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Yes"/>
+            <xs:enumeration value="No"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="howdidyouhearaboutus">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Friend"/>
+            <xs:enumeration value="Advertisement"/>
+            <xs:enumeration value="Social Media"/>
+            <xs:enumeration value="Others"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="wouldyouliketoreceiveupdatesandpromotionfromus">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Yes"/>
+            <xs:enumeration value="No"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="doyouhavesuggestiontohelpusimprove">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Yes"/>
+            <xs:enumeration value="No"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="messages">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

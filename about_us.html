@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - CuddleBuddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --dark-red: #561C24;
+      --deep-rose: #6D2932;
+      --soft-beige: #C7B7A3;
+      --light-cream: #E8D8C4;
+      --text-dark: #2b1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+  header {
+      background-color: #561C24;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+nav a {
+      color: #e75480;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+.login-icon-link {
+  margin-left: 20px;
+}
+
+.login-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;     
+  object-fit: cover;     
+  border: 2px solid #e4e0e1;  
+  transition: transform 0.3s;
+}
+
+.login-icon:hover {
+  transform: scale(1.1);  
+}
+
+    /* SEARCH BAR */
+    .search-bar {
+      background-color: #fff0f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px 15px;
+      width: 250px;
+      border: 2px solid #e75480;
+      border-radius: 25px 0 0 25px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #e75480;
+      color: white;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar button:hover {
+      background-color: #ff69b4;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: var(--deep-rose);
+      font-size: 2em;
+      margin: 40px 0 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+
+    .category-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .category-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 8px solid var(--deep-rose);
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-title {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: var(--dark-red);
+      margin-bottom: 10px;
+    }
+
+    ul.category-list {
+      padding-left: 18px;
+    }
+
+    ul.category-list li {
+      margin-bottom: 8px;
+    }
+
+    .theme-colors {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .color-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+    }
+
+    .color-1 { background-color: var(--dark-red); }
+    .color-2 { background-color: var(--deep-rose); }
+    .color-3 { background-color: var(--soft-beige); }
+    .color-4 { background-color: var(--light-cream); }
+
+    footer {
+      background-color: var(--dark-red);
+      color: white;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: var(--light-cream);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95em;
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .social-icons a {
+      font-size: 1.6em;
+      color: white;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--soft-beige);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff30;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="homepage.html" class="Homepage">
+    <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo">
+  </a>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="about_us.html">About us</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQS</a>
+    <a href="contact_us.html">Contact Us</a>
+  </nav>
+
+  <a href="login.html" class="login-icon-link">
+    <img src="IMAGES/login_icon.jpeg" alt="Login" class="login-icon">
+  </a>
+</header>
+  
+    <!-- 🔍 SEARCH BAR -->
+    <section class="search-bar">
+      <form>
+        <input type="text" placeholder="Search for plushies...">
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>Welcome to <strong>CuddleBuddies</strong> – where plush dreams come to life! At CuddleBuddies, we’re passionate about creating comfort and connection through the power of cuddly companions. We don’t just sell plush toys – we craft joy, nostalgia, and lasting memories.</p>
+      <p>Whether you're young or young at heart, our plushies bring warmth, smiles, and a bit of magic to every hug. Each product is thoughtfully designed or curated with love, making them perfect for gifting, collecting, decorating, or simply snuggling up after a long day.</p>
+    </section>
+
+    <section>
+      <h2>Plush Categories</h2>
+      <div class="category-section">
+        <div class="category-card">
+          <div class="category-title">Animal Friends</div>
+          <ul class="category-list">
+            <li>Bear</li>
+            <li>Cat</li>
+            <li>Shark</li>
+            <li>Elephant</li>
+            <li><strong>Capybara</strong> <em>(Limited Edition)</em></li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">Cartoon Cuties</div>
+          <ul class="category-list">
+            <li>Lotso</li>
+            <li>We Bare Bears</li>
+            <li>Kuromi <em>(Limited)</em></li>
+            <li>Minions</li>
+            <li>Tom and Jerry</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">Fruity Delights</div>
+          <ul class="category-list">
+            <li>Strawberry</li>
+            <li>Banana</li>
+            <li>Watermelon</li>
+            <li>Mango</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">Plant Pals</div>
+          <ul class="category-list">
+            <li>Sunflower</li>
+            <li>Cactus</li>
+            <li>Rose</li>
+            <li>Mushroom</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why Choose Us?</h2>
+      <p>Quality, creativity, and heartfelt design are at the heart of CuddleBuddies. We’re more than a plush store – we’re a community of cuddles and collectors. Whether you're finding a new best friend or giving someone else the perfect soft gift, we’re here to make the moment unforgettable.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h3>About CuddleBuddies</h3>
+        <p>We create soft, lovable plushies inspired by cartoons, animals, fruits, and plants. Designed to bring smiles, comfort, and joy to all ages.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="about_us.html">About Us</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact_us.html">Contact Us</a>
+      </div>
+
+      
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com/cuddlebuddies" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com/@cuddlebuddies" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 CuddleBuddies. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

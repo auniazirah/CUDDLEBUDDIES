@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - CuddleBuddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --dark-red: #561C24;
+      --deep-rose: #6D2932;
+      --soft-beige: #C7B7A3;
+      --light-cream: #E8D8C4;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-cream);
+      color: #3a2d2d;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+  header {
+      background-color: #561C24;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+nav a {
+      color: #e75480;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+.login-icon-link {
+  margin-left: 20px;
+}
+
+.login-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;     
+  object-fit: cover;     
+  border: 2px solid #e4e0e1;  
+  transition: transform 0.3s;
+}
+
+.login-icon:hover {
+  transform: scale(1.1);  
+}
+
+    /* SEARCH BAR */
+    .search-bar {
+      background-color: #fff0f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px 15px;
+      width: 250px;
+      border: 2px solid #e75480;
+      border-radius: 25px 0 0 25px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #e75480;
+      color: white;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar button:hover {
+      background-color: #ff69b4;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-form {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-form form {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .contact-form h2 {
+      color: var(--deep-rose);
+      font-size: 1.8em;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid var(--soft-beige);
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #fdfaf6;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background-color: var(--dark-red);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--deep-rose);
+    }
+
+    .contact-info {
+      background-color: var(--soft-beige);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2 {
+      font-size: 1.8em;
+      color: var(--dark-red);
+      margin-bottom: 25px;
+    }
+
+    .contact-info p {
+      font-size: 1.05em;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .contact-info strong {
+      display: inline-block;
+      width: 120px;
+      color: var(--deep-rose);
+    }
+
+    footer {
+      background-color: var(--dark-red);
+      color: white;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: var(--light-cream);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95em;
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .social-icons a {
+      font-size: 1.6em;
+      color: white;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--soft-beige);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff30;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+    .toggle-question {
+  margin-top: 20px;
+  background-color: #fce4ec; /* soft pink */
+  border: 1.5px solid var(--soft-beige);
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-question[open] {
+  background-color: #f8bbd0; /* a bit stronger pink when open */
+}
+
+.toggle-question summary {
+  list-style: none;
+  outline: none;
+}
+
+.toggle-question summary::-webkit-details-marker {
+  display: none; /* hide default arrow */
+}
+
+.toggle-question summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+  color: var(--deep-rose);
+}
+
+.toggle-question[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.options {
+  margin-top: 12px;
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+}
+
+.options label {
+  cursor: pointer;
+  font-weight: normal;
+  color: var(--dark-red);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1em;
+}
+
+.options input[type="radio"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* Suggestion textarea styling */
+.toggle-question textarea#suggestions {
+  font-size: 1em;
+  background-color: #fdfaf6;
+  color: #3a2d2d;
+  border-radius: 8px;
+  border: 1.5px solid var(--soft-beige);
+  padding: 12px;
+  margin-top: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Style the select box */
+select#referral {
+  width: 100%;
+  padding: 12px 40px 12px 15px; /* space for custom arrow */
+  border: 1.5px solid var(--soft-beige);
+  border-radius: 13px;
+  font-size: 1em;
+  background-color: #fce4ec; /* soft pink background */
+  font-family: 'Quicksand', sans-serif;
+  color: var(--dark-red);
+  cursor: pointer;
+  appearance: none; /* remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3); /* gentle pink shadow */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Change border and shadow on focus */
+select#referral:focus {
+  border-color: var(--deep-rose);
+  box-shadow: 0 0 8px var(--deep-rose);
+  outline: none;
+}
+
+/* Container to position custom arrow */
+select#referral-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Custom arrow using a pseudo-element */
+select#referral-container::after {
+  content: "▼";
+  font-size: 0.7em;
+  color: var(--deep-rose);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Style for options - note: limited styling in some browsers */
+select#referral option {
+  background-color: #fdfaf6;
+  color: var(--dark-red);
+  padding: 10px;
+}
+
+select#age {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--soft-beige);
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: #fdfaf6;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+  appearance: none;  /* hides default arrow on some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 44px; /* matches typical input height */
+  line-height: 1.2;
+}
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+  <a href="homepage.html" class="Homepage">
+    <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo">
+  </a>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="about_us.html">About us</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQS</a>
+    <a href="contact_us.html">Contact Us</a>
+  </nav>
+
+  <a href="login.html" class="login-icon-link">
+    <img src="IMAGES/login_icon.jpeg" alt="Login" class="login-icon">
+  </a>
+</header>
+
+  <!-- 🔍 SEARCH BAR -->
+  <section class="search-bar">
+    <form>
+      <input type="text" placeholder="Search for plushies...">
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <main>
+
+<div class="contact-form">
+  <form action="#" method="post" novalidate>
+    <h2>Send Us a Message</h2>
+    
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required />
+
+<label for="age">Your Age</label>
+<select id="age" name="age" required>
+  <option value="" disabled selected>Select your age</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+  <option value="37">37</option>
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+  <option value="43">43</option>
+  <option value="44">44</option>
+  <option value="45">45</option>
+  <option value="46">46</option>
+  <option value="47">47</option>
+  <option value="48">48</option>
+  <option value="49">49</option>
+  <option value="50">50</option>
+  <option value="51">51</option>
+  <option value="52">52</option>
+  <option value="53">53</option>
+  <option value="54">54</option>
+  <option value="55">55</option>
+  <option value="56">56</option>
+  <option value="57">57</option>
+  <option value="58">58</option>
+  <option value="59">59</option>
+  <option value="60">60</option>
+  <option value="61">61</option>
+  <option value="62">62</option>
+  <option value="63">63</option>
+  <option value="64">64</option>
+  <option value="65">65</option>
+  <option value="66">66</option>
+  <option value="67">67</option>
+  <option value="68">68</option>
+  <option value="69">69</option>
+  <option value="70">70</option>
+  <option value="71">71</option>
+  <option value="72">72</option>
+  <option value="73">73</option>
+  <option value="74">74</option>
+  <option value="75">75</option>
+  <option value="76">76</option>
+  <option value="77">77</option>
+  <option value="78">78</option>
+  <option value="79">79</option>
+  <option value="80">80</option>
+  <option value="81">81</option>
+  <option value="82">82</option>
+  <option value="83">83</option>
+  <option value="84">84</option>
+  <option value="85">85</option>
+  <option value="86">86</option>
+  <option value="87">87</option>
+  <option value="88">88</option>
+  <option value="89">89</option>
+  <option value="90">90</option>
+  <option value="91">91</option>
+  <option value="92">92</option>
+  <option value="93">93</option>
+  <option value="94">94</option>
+  <option value="95">95</option>
+  <option value="96">96</option>
+  <option value="97">97</option>
+  <option value="98">98</option>
+  <option value="99">99</option>
+  <option value="100">100</option>
+</select>
+
+
+    <label for="birthdate">Your Birth Date</label>
+    <input 
+      type="text" 
+      id="birthdate" 
+      name="birthdate" 
+      placeholder="DDMMYYYY" 
+      pattern="^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])\d{4}$" 
+      title="Please enter birthdate as DDMMYYYY" 
+      required 
+    />
+
+    <label for="email">Email Address</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      placeholder="example@domain.com" 
+      required 
+    />
+
+    <label for="phone">Phone Number</label>
+    <input 
+      type="tel" 
+      id="phone" 
+      name="phone" 
+      placeholder="e.g. 0123456789" 
+      pattern="^\d{7,15}$" 
+      title="Please enter a valid phone number (numbers only)" 
+      required 
+    />
+
+<details class="toggle-question" role="group" aria-labelledby="purchased-label">
+  <summary id="purchased-label">Have you purchased from us before?</summary>
+  <div class="options">
+    <label><input type="radio" name="purchased_before" value="yes" required> Yes</label>
+    <label><input type="radio" name="purchased_before" value="no" required> No</label>
+  </div>
+</details>
+
+<label for="referral">How did you hear about us?</label>
+<div id="referral-container">
+  <select id="referral" name="referral" required>
+    <option value="" disabled selected>Select an option</option>
+    <option value="advertisement">Advertisement</option>
+    <option value="tiktok">TikTok</option>
+    <option value="friends">Friends</option>
+    <option value="social_media">Social Media</option>
+    <option value="others">Others</option>
+  </select>
+</div>
+
+
+<details class="toggle-question" role="group" aria-labelledby="updates-label">
+  <summary id="updates-label">Would you like to receive updates and promotions from us?</summary>
+  <div class="options">
+    <label><input type="radio" name="receive_updates" value="yes" required> Yes</label>
+    <label><input type="radio" name="receive_updates" value="no" required> No</label>
+  </div>
+</details>
+
+<details class="toggle-question" role="group" aria-labelledby="suggestions-label">
+  <summary id="suggestions-label">Do you have suggestions to help us improve?</summary>
+  <div class="options">
+    <label>
+      <input type="radio" name="has_suggestions" value="yes" required onclick="toggleSuggestionBox(true)">
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="has_suggestions" value="no" required onclick="toggleSuggestionBox(false)">
+      No
+    </label>
+  </div>
+  <textarea 
+    id="suggestions" 
+    name="suggestions" 
+    rows="3" 
+    placeholder="Your suggestions here..." 
+    style="display:none;"
+  ></textarea>
+</details>
+
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+    <div class="contact-info">
+      <h2>Our Contact Details</h2>
+      <p><strong>Email:</strong> support@cuddlebuddies.com</p>
+      <p><strong>Phone:</strong> +60 123 456 789</p>
+      <p><strong>Address:</strong> 123 Plushie Lane, Kuala Lumpur, Malaysia</p>
+      <p><strong>Business Hours:</strong><br>Mon - Fri: 9:00 AM – 6:00 PM<br>Sat: 10:00 AM – 2:00 PM</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h3>About CuddleBuddies</h3>
+        <p>We create soft, lovable plushies inspired by cartoons, animals, fruits, and plants. Designed to bring smiles, comfort, and joy to all ages.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="homepage.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about_us.html">About Us</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact_us.html">Contact Us</a>
+      </div>
+
+      
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com/cuddlebuddies" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com/@cuddlebuddies" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 CuddleBuddies. All Rights Reserved.
+    </div>
+  </footer>
+
+<script>
+  function toggleSuggestionBox(show) {
+    const suggestionBox = document.getElementById('suggestions');
+    if (show) {
+      suggestionBox.style.display = 'block';
+      suggestionBox.setAttribute('required', '');
+    } else {
+      suggestionBox.style.display = 'none';
+      suggestionBox.value = '';
+      suggestionBox.removeAttribute('required');
+    }
+  }
+</script>
+
+
+
+</body>
+</html>

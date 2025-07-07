@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage - CuddleBuddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+    --dark-red: #561C24;
+    --deep-rose: #6D2932;
+    --soft-beige: #C7B7A3;
+    --light-cream: #E8D8C4;
+  }
+
+    * {
+      
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+  header {
+      background-color: #561C24;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+nav a {
+      color: #e75480;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+.login-icon-link {
+  margin-left: 20px;
+}
+
+.login-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;     
+  object-fit: cover;     
+  border: 2px solid #e4e0e1;  
+  transition: transform 0.3s;
+}
+
+.login-icon:hover {
+  transform: scale(1.1);  
+}
+
+    /* SEARCH BAR */
+    .search-bar {
+      background-color: #fff0f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px 15px;
+      width: 250px;
+      border: 2px solid #e75480;
+      border-radius: 25px 0 0 25px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #e75480;
+      color: white;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar button:hover {
+      background-color: #ff69b4;
+    }
+
+    .hero {
+      position: relative;
+      height: 50vh;
+      overflow: hidden;
+    }
+
+    .hero-slider {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .hero-slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-caption {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-caption h2 {
+      background-color: #72353d;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 36px;
+    }
+
+    .about-product {
+      padding: 50px 40px;
+      background-color: #fffafc;
+      text-align: center;
+    }
+
+    .about-product h2 {
+      font-size: 30px;
+      color: #561C24;
+      margin-bottom: 20px;
+    }
+
+    .about-product p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #555;
+    }
+
+    .category-section {
+      background-color: #f9fff0;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: #8fa95b;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      color: #d94e5c;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .category-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-card img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      font-size: 18px;
+      color: #d94e5c;
+      margin-bottom: 10px;
+    }
+
+    .category-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .category-card a {
+      color: #d94e5c;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .category-card a:hover {
+      color: #ff6b81;
+    }
+
+    .product-section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #e75480;
+      font-weight: bold;
+    }
+
+   footer {
+      background-color: var(--dark-red);
+      color: white;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: var(--light-cream);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95em;
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .social-icons a {
+      font-size: 1.6em;
+      color: white;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--soft-beige);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff30;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    .social-icons a {
+      font-size: 1.6em;
+      color: white;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--soft-beige);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff30;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="homepage.html" class="Homepage">
+    <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo">
+  </a>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="about_us.html">About us</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQS</a>
+    <a href="contact_us.html">Contact Us</a>
+  </nav>
+
+  <a href="login.html" class="login-icon-link">
+    <img src="IMAGES/login_icon.jpeg" alt="Login" class="login-icon">
+  </a>
+</header>
+
+<!-- 🔍 SEARCH BAR -->
+<section class="search-bar">
+  <form>
+    <input type="text" placeholder="Search for plushies...">
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<section class="hero">
+  <div class="hero-caption">
+    <h2>Soft, Cute, and Huggable Plushies</h2>
+  </div>
+  <div class="hero-slider">
+    <img class="slide" src="IMAGES/plushie 1.webp" style="opacity:1;">
+    <img class="slide" src="IMAGES/featured-plush-2.jpg" style="opacity:0;">
+    <img class="slide" src="IMAGES/plushie 2.jpg" style="opacity:0;">
+  </div>
+</section>
+
+<section class="about-product">
+  <h2>ִֶָ࿐About Our Productִֶָ ࿐</h2>
+  <p>
+    At Cuddlebuddies, each plushie is made with love and ultra-soft materials,
+    ensuring a huggable and safe companion for all ages. Whether it's a gift or a personal snuggle buddy,
+    our plushies are designed to bring comfort, joy, and cuteness to your everyday life.
+  </p>
+</section>
+
+<section class="category-section">
+  <h4 class="section-subtitle">↶ Plush Products ↷</h4>
+  <h2 class="section-title">Product Categories</h2>
+  <div class="category-grid">
+    <div class="category-card">
+      <img src="IMAGES/bunny animal.webp" alt="Animal Plushies">
+      <h3>Animal Plushie</h3>
+      <p>Soft, high-quality, and fully customizable plush toys.</p>
+      <a href="shop.html#animal-section">VIEW MORE →</a>
+    </div>
+    <div class="category-card">
+      <img src="IMAGES/cartoon micky mouse.avif" alt="Cartoon Plushies">
+      <h3>Cartoon Plushie</h3>
+      <p>Plush, supportive cushions in various shapes and sizes.</p>
+      <a href="shop.html#cartoon-section">VIEW MORE →</a>
+    </div>
+    <div class="category-card">
+      <img src="IMAGES/fruit toys.jpg" alt="Fruit Plushies">
+      <h3>Fruit Plushie</h3>
+      <p>A plush, comfortable and stylish home accessory.</p>
+      <a href="shop.html#fruit-section">VIEW MORE →</a>
+    </div>
+    <div class="category-card">
+      <img src="IMAGES/plant plushie.jpg" alt="Plant Plushies">
+      <h3>Plant Plushie</h3>
+      <p>Customizable plush decorations for any space.</p>
+      <a href="shop.html#plant-section">VIEW MORE →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>About CuddleBuddies</h3>
+      <p>We create soft, lovable plushies inspired by cartoons, animals, fruits, and plants. Designed to bring smiles, comfort, and joy to all ages.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="homepage.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about_us.html">About Us</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact_us.html">Contact Us</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://instagram.com/cuddlebuddies" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@cuddlebuddies" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 CuddleBuddies. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlides() {
+    slides.forEach((slide, index) => {
+      slide.style.opacity = (index === slideIndex) ? "1" : "0";
+    });
+    slideIndex = (slideIndex + 1) % slides.length;
+    setTimeout(showSlides, 4000);
+  }
+
+  showSlides();
+</script>
+
+</body>
+</html>

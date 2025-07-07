@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="summary.xsl"?>
+
+<product>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Cat Plusie</productname>
+	   <size>Small</size>
+	   <price>RM39.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Cat Plushie</productname>
+	   <size>Large</size>
+	   <price>RM49.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Capybara Plushie</productname>
+	   <size>Small</size>
+	   <price>RM49.90</price>
+   </details>
+    <details>
+       <categories>Animal</categories>
+	   <productname>Capybara Plushie</productname>
+	   <size>Large</size>
+	   <price>RM59.90</price>
+   </details>   
+   <details>
+       <categories>Animal</categories>
+	   <productname>Elephant Plushie</productname>
+	   <size>Small</size>
+	   <price>RM55.90</price>
+   </details>
+    <details>
+       <categories>Animal</categories>
+	   <productname>Elephant Plushie</productname>
+	   <size>Large</size>
+	   <price>RM65.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Bear Plushie</productname>
+	   <size>Small</size>
+	   <price>RM40.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Bear Plushie</productname>
+	   <size>Large</size>
+	   <price>RM50.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Whale Plushie</productname>
+	   <size>Small</size>
+	   <price>RM42.90</price>
+   </details>
+   <details>
+       <categories>Animal</categories>
+	   <productname>Whale Plushie</productname>
+	   <size>Large</size>
+	   <price>RM52.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>We Bare Bears Plushie</productname>
+	   <size>Small</size>
+	   <price>RM45.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>We Bare Bears Plushie</productname>
+	   <size>Large</size>
+	   <price>RM55.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>Lotso Plushie</productname>
+	   <size>Small</size>
+	   <price>RM50.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>Lotso Plushie</productname>
+	   <size>Large</size>
+	   <price>RM60.90</price>
+   </details>
+    <details>
+       <categories>Cartoon</categories>
+	   <productname>Kuromi Plushie</productname>
+	   <size>Small</size>
+	   <price>RM60.90</price>
+   </details>
+    <details>
+       <categories>Cartoon</categories>
+	   <productname>Kuromi Plushie</productname>
+	   <size>Large</size>
+	   <price>RM70.90</price>
+   </details>
+    <details>
+       <categories>Cartoon</categories>
+	   <productname>Minion Plushie</productname>
+	   <size>Small</size>
+	   <price>RM42.90</price>
+   </details>
+    <details>
+       <categories>Cartoon</categories>
+	   <productname>Minion Plushie</productname>
+	   <size>Large</size>
+	   <price>RM52.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>Tom and Jerry Plushie</productname>
+	   <size>Small</size>
+	   <price>RM39.90</price>
+   </details>
+   <details>
+       <categories>Cartoon</categories>
+	   <productname>Tom and Jerry Plushie</productname>
+	   <size>Large</size>
+	   <price>RM49.90</price>
+   </details>
+   <details>
+       <categories>Fruit</categories>
+	   <productname>Watermelon Plushie</productname>
+	   <size>Small</size>
+	   <price>RM34.90</price>
+   </details>
+   <details>
+       <categories>Fruit</categories>
+	   <productname>Watermelon Plushie</productname>
+	   <size>Large</size>
+	   <price>RM44.90</price>
+   </details>
+   <details>
+       <categories>Fruit</categories>
+	   <productname>Strawberry Plushie</productname>
+	   <size>Small</size>
+	   <price>RM34.90</price>
+   </details>
+   <details>
+       <categories>Fruit</categories>
+	   <productname>Strawberry Plushie</productname>
+	   <size>Large</size>
+	   <price>RM44.90</price>
+   </details>
+    <details>
+       <categories>Fruit</categories>
+	   <productname>Banana Plushie</productname>
+	   <size>Small</size>
+	   <price>RM40.90</price>
+   </details>
+   <details>
+       <categories>Fruit</categories>
+	   <productname>Banana Plushie</productname>
+	   <size>Large</size>
+	   <price>RM50.90</price>
+   </details>
+    <details>
+       <categories>Fruit</categories>
+	   <productname>Mango Plushie</productname>
+	   <size>Small</size>
+	   <price>RM34.90</price>
+   </details>
+    <details>
+       <categories>Fruit</categories>
+	   <productname>Mango Plushie</productname>
+	   <size>Large</size>
+	   <price>RM44.90</price>
+   </details>
+   <details>
+       <categories>Plant</categories>
+	   <productname>Cactus Plushie</productname>
+	   <size>Small</size>
+	   <price>RM34.90</price>
+   </details>
+    <details>
+       <categories>Plant</categories>
+	   <productname>Cactus Plushie</productname>
+	   <size>Large</size>
+	   <price>RM44.90</price>
+   </details>
+   <details>
+       <categories>Plant</categories>
+	   <productname>Sunflower Plushie</productname>
+	   <size>Small</size>
+	   <price>RM34.90</price>
+   </details>
+   <details>
+       <categories>Plant</categories>
+	   <productname>Sunflowe Plushie</productname>
+	   <size>Large</size>
+	   <price>RM44.90</price>
+   </details>
+      <details>
+       <categories>Plant</categories>
+	   <productname>Rose Plushie</productname>
+	   <size>Small</size>
+	   <price>RM35.90</price>
+   </details>
+      <details>
+       <categories>Plant</categories>
+	   <productname>Rose Plushie</productname>
+	   <size>Large</size>
+	   <price>RM45.90</price>
+   </details>
+      <details>
+       <categories>Plant</categories>
+	   <productname>Mushroom Plushie</productname>
+	   <size>Small</size>
+	   <price>RM48.90</price>
+   </details>
+      <details>
+       <categories>Plant</categories>
+	   <productname>Mushroom Plushie</productname>
+	   <size>Large</size>
+	   <price>RM58.90</price>
+   </details>
+</product>

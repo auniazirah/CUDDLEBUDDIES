@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - CuddleBuddies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <a href="javascript:history.back()" class="back-button">Back</a>
+  
+<header>
+  <a href="homepage.html" class="Homepage">
+    <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo">
+  </a>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="about_us.html">About us</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQS</a>
+    <a href="contact_us.html">Contact Us</a>
+  </nav>
+
+  <a href="login.html" class="login-icon-link">
+    <img src="IMAGES/login_icon.jpeg" alt="Login" class="login-icon">
+  </a>
+</header>
+
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Register</h2>
+      <form id="signup-form" action="#" method="post">
+        <label>Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required>
+
+        <button type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>About CuddleBuddies</h3>
+      <p>We create soft, lovable plushies inspired by cartoons, animals, fruits, and plants. Designed to bring smiles, comfort, and joy to all ages.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="homepage.html">Home</a>
+      <a href="#">Shop</a>
+      <a href="about_us.html">About Us</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact_us.html">Contact Us</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://instagram.com/cuddlebuddies" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@cuddlebuddies" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 CuddleBuddies. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById('fullname').value; // Tambah line ni
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match. Please try again.");
+      return;
+    }
+
+    // Simpan semua data yang diperlukan
+    localStorage.setItem('userFullName', fullName); // Simpan nama
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPassword', password);
+
+    alert('Registration successful! You can now log in.');
+    window.location.href = 'login.html';
+  });
+</script>
+
+
+  
+</body>
+</html>

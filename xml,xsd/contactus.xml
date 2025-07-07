@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contactus
+xmlns="https://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.w3schools.com contactus.xsd">
+
+	<customer>
+		<details>
+			<cust_fullname>Ain Farisha Hanim Binti Kharuddin</cust_fullname>
+			<cust_age>21</cust_age>
+			<cust_birthdate>09/10/2004</cust_birthdate>
+			<email>hanim@gmail.com</email>
+			<hpno>0123456789</hpno>
+			<haveyoupurchasebefore>Yes</haveyoupurchasebefore>
+			<howdidyouhearaboutus>Friend</howdidyouhearaboutus>
+			<wouldyouliketoreceiveupdatesandpromotionfromus>No</wouldyouliketoreceiveupdatesandpromotionfromus>
+			<doyouhavesuggestiontohelpusimprove>Yes</doyouhavesuggestiontohelpusimprove>
+			<messages>I would like to change my order</messages>
+		</details>
+	</customer>
+
+</contactus>

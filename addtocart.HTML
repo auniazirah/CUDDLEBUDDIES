@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart - CuddleBuddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f9f4f6;
+      color: #3a2d2d;
+    }
+    header {
+      background-color: #561C24;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+    nav a {
+      color: #e75480;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff69b4;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #561C24;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #ffe6ec;
+      color: #561C24;
+      font-weight: 600;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #ffd2dc;
+    }
+    .quantity-input {
+      width: 50px;
+      padding: 5px;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 8px;
+      border: 1px solid #e75480;
+      color: #561C24;
+    }
+    .remove-btn {
+      background-color: #e75480;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .remove-btn:hover {
+      background-color: #ff69b4;
+    }
+    .total {
+      font-size: 1.4em;
+      font-weight: 700;
+      text-align: right;
+      margin-bottom: 30px;
+      color: #561C24;
+    }
+    .checkout-btn {
+      display: block;
+      background-color: #ff8fa1;
+      color: white;
+      font-weight: 700;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 auto 50px;
+      width: 200px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+    .checkout-btn:hover {
+      background-color: #ff5c75;
+    }
+    .empty-cart {
+      text-align: center;
+      font-size: 1.2em;
+      color: #999;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="homepage.html" class="Homepage">
+      <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo" />
+    </a>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="about_us.html">About us</a>
+      <a href="shop.html">Shop</a>
+      <a href="faq.html">FAQS</a>
+      <a href="contact_us.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Your Shopping Cart</h1>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Size</th>
+          <th>Price (RM)</th>
+          <th>Quantity</th>
+          <th>Subtotal (RM)</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Items will load here -->
+      </tbody>
+    </table>
+    <div class="empty-cart" id="empty-cart" style="display:none;">
+      Your cart is empty. <a href="shop.html">Go shopping</a>!
+    </div>
+    <div class="total" id="total-price">Total: RM0.00</div>
+    <button class="checkout-btn" id="checkout-btn">Checkout</button>
+  </main>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartItemsContainer = document.getElementById("cart-items");
+    const totalPriceEl = document.getElementById("total-price");
+    const emptyCartEl = document.getElementById("empty-cart");
+    const checkoutBtn = document.getElementById("checkout-btn");
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = "";
+      if (cart.length === 0) {
+        emptyCartEl.style.display = "block";
+        totalPriceEl.style.display = "none";
+        checkoutBtn.style.display = "none";
+        return;
+      } else {
+        emptyCartEl.style.display = "none";
+        totalPriceEl.style.display = "block";
+        checkoutBtn.style.display = "block";
+      }
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td style="text-align:left;">
+            <img src="${item.image}" alt="${item.name}" />
+            <span style="margin-left:10px;">${item.name}</span>
+          </td>
+          <td>${item.size}</td>
+          <td>${item.price.toFixed(2)}</td>
+          <td>
+            <input type="number" min="1" class="quantity-input" value="${item.quantity}" data-index="${index}" />
+          </td>
+          <td>${subtotal.toFixed(2)}</td>
+          <td>
+            <button class="remove-btn" data-index="${index}" aria-label="Remove ${item.name} from cart">&times;</button>
+          </td>
+        `;
+
+        cartItemsContainer.appendChild(tr);
+      });
+
+      totalPriceEl.textContent = `Total: RM${total.toFixed(2)}`;
+
+      // Add event listeners for quantity change and remove buttons
+      document.querySelectorAll(".quantity-input").forEach(input => {
+        input.addEventListener("change", e => {
+          const index = e.target.getAttribute("data-index");
+          let qty = parseInt(e.target.value);
+          if (isNaN(qty) || qty < 1) qty = 1;
+          cart[index].quantity = qty;
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        });
+      });
+
+      document.querySelectorAll(".remove-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          const index = e.target.getAttribute("data-index");
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        });
+      });
+    }
+
+    checkoutBtn.addEventListener("click", () => {
+      window.location.href = "checkout.html";
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCart();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop - CuddleBuddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+
+    :root {
+      --dark-red: #561C24;
+      --deep-rose: #6D2932;
+      --soft-beige: #C7B7A3;
+      --light-cream: #E8D8C4;
+      --rose-hover: #e75480;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-cream);
+      color: #3a2d2d;
+    }
+
+    header {
+      background-color: var(--dark-red);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    nav a {
+      color: var(--rose-hover);
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+    .login-icon-link {
+      margin-left: 20px;
+    }
+
+    .login-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e4e0e1;
+      transition: transform 0.3s;
+    }
+
+    .login-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .search-bar {
+      background-color: #fff0f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px 15px;
+      width: 250px;
+      border: 2px solid var(--rose-hover);
+      border-radius: 25px 0 0 25px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: var(--rose-hover);
+      color: white;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar button:hover {
+      background-color: #ff69b4;
+    }
+
+    main {
+      display: flex;
+      padding: 30px 40px;
+      box-sizing: border-box;
+    }
+
+.sidebar {
+  width: 220px;
+  background: #ffe6ec;
+  padding: 30px 20px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+  margin-right: 30px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.sidebar details {
+  background-color: #fff0f5;
+  margin-bottom: 12px;
+  border-radius: 15px;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.sidebar details[open] {
+  background-color: #ffb6c1;
+}
+
+.sidebar summary {
+  font-weight: 600;
+  color: #d4718c;
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding-left: 38px;
+}
+
+.sidebar summary::before {
+  content: "𐙚";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: normal;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+
+.sidebar details[open] summary::before {
+  content: "𐙚";
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 18px;
+  margin: 8px 0 0 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.sidebar li {
+  margin: 6px 0;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.sidebar li:hover {
+  background-color: #ffdce6;
+  color: #933b4d;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+    /* Product section */
+    .product-section {
+      flex: 1;
+    }
+
+    .sort {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .product {
+      width: 180px;
+      background-color: #fff;
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+    }
+
+    .product img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      border: 3px solid #ffe3e9;
+    }
+
+    .product h3 {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-weight: normal;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    select.size-select {
+      margin-top: 8px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid #ffd2dc;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff9fb;
+      color: #b55c6a;
+      font-size: 13px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    select.size-select:focus {
+      outline: none;
+      border-color: #ffa5b5;
+      box-shadow: 0 0 5px #ffd6e4;
+    }
+
+    .add-to-cart-btn {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #ff8fa1;
+    }
+
+    /* Cart icon fixed */
+    .cart-icon {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--dark-red);
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 22px;
+      z-index: 1000;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--rose-hover);
+      color: white;
+      border-radius: 50%;
+      padding: 4px 7px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-red);
+      color: white;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: var(--light-cream);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95em;
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .social-icons a {
+      font-size: 1.6em;
+      color: white;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--soft-beige);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff30;
+      padding-top: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-radius: 0;
+        padding: 15px 10px;
+        margin-right: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+      }
+      .sidebar details {
+        margin: 0 10px;
+      }
+      .products {
+        justify-content: center;
+        gap: 20px;
+      }
+      .product {
+        width: 140px;
+        padding: 15px;
+      }
+      .product img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="homepage.html" class="Homepage">
+      <img src="IMAGES/logo_icon.jpg" alt="Cuddlebuddies Logo" class="logo" />
+    </a>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="about_us.html">About us</a>
+      <a href="shop.html">Shop</a>
+      <a href="faq.html">FAQS</a>
+      <a href="contact_us.html">Contact Us</a>
+    </nav>
+    <a href="login.html" class="login-icon-link">
+      <img src="IMAGES/login_icon.jpeg" alt="Login" class="login-icon" />
+    </a>
+  </header>
+
+  <section class="search-bar">
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search for plushies..." />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <main>
+<aside class="sidebar">
+  <details open>
+    <summary data-category="all">All Categories</summary>
+  </details>
+
+  <details>
+    <summary data-category="animal" id="animal-section">Animal</summary>
+    <ul>
+      <li class="subcategory" data-category="cat">Cat</li>
+      <li class="subcategory" data-category="capybara">Capybara (limited edition)</li>
+      <li class="subcategory" data-category="bear">Bear</li>
+      <li class="subcategory" data-category="Whale">Whale</li>
+      <li class="subcategory" data-category="elephant">Elephant</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary data-category="cartoon" id="cartoon-section">Cartoon</summary>
+    <ul>
+      <li class="subcategory" data-category="lotso">Lotso</li>
+      <li class="subcategory" data-category="webarebears">We Bare Bears</li>
+      <li class="subcategory" data-category="kuromi">Kuromi (limited edition)</li>
+      <li class="subcategory" data-category="minions">Minions</li>
+      <li class="subcategory" data-category="tomandjerry">Tom and Jerry</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary data-category="fruit" id="fruit-section">Fruit</summary>
+    <ul>
+      <li class="subcategory" data-category="strawberry">Strawberry</li>
+      <li class="subcategory" data-category="banana">Banana</li>
+      <li class="subcategory" data-category="watermelon">Watermelon</li>
+      <li class="subcategory" data-category="mango">Mango</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary data-category="plant" id="plant section">Plant</summary>
+    <ul>
+      <li class="subcategory" data-category="sunflower">Sunflower</li>
+      <li class="subcategory" data-category="cactus">Cactus</li>
+      <li class="subcategory" data-category="rose">Rose</li>
+      <li class="subcategory" data-category="mushroom">Mushroom</li>
+    </ul>
+  </details>
+</aside>
+
+
+    <section class="product-section">
+      <div class="sort">
+        Sort by:
+        <select id="sort-select" aria-label="Sort products">
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+      <p id="no-results" style="display:none; text-align:center; font-weight: bold; color: #d94c66; margin-top: 20px;">
+  Sorry, no result found. Try another word or check your spelling.
+</p>
+
+      <div class="products" id="products-container"></div>
+    </section>
+  </main>
+
+  <!-- Product Modal -->
+<div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:30px; border-radius:20px; max-width:400px; width:90%; position:relative;">
+    <span id="close-modal" style="position:absolute; top:10px; right:15px; font-size:20px; cursor:pointer;">&times;</span>
+    <img id="modal-image" src="" alt="" style="width:100%; border-radius:12px; margin-bottom:15px;" />
+    <h2 id="modal-title" style="margin-bottom:10px;"></h2>
+    <p id="modal-desc" style="font-size:15px; color:#555;"></p>
+  </div>
+</div>
+
+
+ <a href="addtocart.html" aria-label="View shopping cart">
+  <div class="cart-icon" id="cart-icon" tabindex="0">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cart-count">0</span>
+  </div>
+</a>
+
+<!-- Button untuk buka summary -->
+<section style="text-align: center; margin: 60px 0;">
+  <a href="summary.xml" target="_blank" style="
+    background-color: #e75480;
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    display: inline-block;
+  " onmouseover="this.style.backgroundColor='#ff69b4'" onmouseout="this.style.backgroundColor='#e75480'">
+    📄 View Product Summary
+  </a>
+</section>
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>About CuddleBuddies</h3>
+      <p>We create soft, lovable plushies inspired by cartoons, animals, fruits, and plants. Designed to bring smiles, comfort, and joy to all ages.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="homepage.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about_us.html">About Us</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact_us.html">Contact Us</a>
+    </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com/cuddlebuddies" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com/@cuddlebuddies" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      &copy; 2025 CuddleBuddies. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Cactus Plushie", image: "IMAGES/cactusplushie.jpg", priceSmall: 34.90, category: "plant", tags: ["cactus"], description: "A cheerful green cactus with tiny blush details. Made from ultra soft polyester, it’s huggable with a smooth, velvety texture. Available in Small and Large sizes." },
+      { name: "Cat Plushie", image: "IMAGES/catplushie.webp", priceSmall: 39.90, category: "animal", tags: ["cat"], description:"This round black cat plushie features bright yellow embroidered eyes. Soft and huggable, available in Small and Large. Material is velvet-like polyester with a silky smooth finish." },
+      { name: "Capybara Plushie", image: "IMAGES/capybaraplushie.webp", priceSmall: 49.90, category: "animal", tags: ["capybara"], description:"A warm brown plushie shaped like a relaxed capybara, with a small green accessory on its back. Soft-touch surface and slightly weighted bottom. Comes in Small and Large." },
+      { name: "Elephant Plushie", image: "IMAGES/elephant.webp", priceSmall: 55.90, category: "animal", tags: ["elephant"], description:"Grey elephant plush with large floppy ears and detailed trunk. Ultra-soft texture, perfect for cuddling. Made from velvety fleece and filled with plush cotton. Available in both sizes." },
+      { name: "Sunflower Plushie", image: "IMAGES/sunflowerplushie.jpg", priceSmall: 34.90, category: "plant", tags: ["sunflower"], description:"Bright and cheerful with twin sunflowers in a light brown pot. Petals are soft and silky, with a smooth, smiling face. Great for desk decor or gentle hugs." },
+      { name: "We Bare Bears Plushie", image: "IMAGES/wbb.jpg", priceSmall: 45.90, category: "cartoon", tags: ["webarebears"], description:"Includes the iconic panda, polar, and brown bear trio. Made with soft fleece in accurate character colors. Each bear is firm but cuddly, available in two sizes." },
+      { name: "Lotso Plushie", image: "IMAGES/lotsoplushie.jpg", priceSmall: 50.90, category: "cartoon", tags: ["lotso"], description:"Inspired by the Toy Story character, this plushie is bright pink with cream accents and a big smile. Soft velvety surface, firm yet cuddly." },
+      { name: "Kuromi Plushie (Limited Edition)", image: "IMAGES/kuromiplushie.jpg", priceSmall: 60.90, category: "cartoon", tags: ["kuromi"], description:"Dressed in her signature black and purple outfit with skull bow. Textured soft body, detailed stitching, and made for collectors or Sanrio fans." },
+      { name: "Watermelon Plushie", image: "IMAGES/watermelon.png", priceSmall: 34.90, category: "fruit", tags: ["watermelon"], description:"Shaped like a juicy slice of watermelon with a happy face. Red interior, green rind, and black seed accents. Smooth polyester plush." },
+      { name: "Minion Plushie", image: "IMAGES/minionplushie.jpg", priceSmall: 42.90, category: "cartoon", tags: ["minions"], description:"Classic yellow and blue Minion with detailed goggles and overalls. Made from soft polyester, smooth texture, and accurate character design." },
+      { name: "Rose Plushie", image: "IMAGES/roseplushie.jpg", priceSmall: 35.90, category: "plant", tags: ["rose"], description:"Looks like a rose bouquet in a cone. Red petals, brown cone base, and cute face. Great texture contrast with floral top and smooth cone." },
+      { name: "Mushroom Plushie", image: "IMAGES/mushroomplushie.jpg", priceSmall: 48.90, category: "plant", tags: ["mushroom"], description:"Bright red top with white spots and cream-colored base. Happy face and soft, puffy design make this ideal for hugging." },
+      { name: "Strawberry Plushie", image: "IMAGES/strawberry.png", priceSmall: 34.90, category: "fruit", tags: ["strawberry"], description:"A bunny wearing a red strawberry hood with white seeds and green leaf. Made of soft velboa fabric with a smooth feel. Small and Large sizes available." },
+      { name: "Banana Plushie", image: "IMAGES/banana.png", priceSmall: 40.90, category: "fruit", tags: ["banana"], description:"Twin yellow bananas with adorable faces and embroidered cheeks. Soft to the touch and lightweight, made from fuzzy polyester." },
+      { name: "Tom & Jerry Plushie", image: "IMAGES/tom&jerry.jpg", priceSmall: 39.90, category: "cartoon", tags: ["tomandjerry"], description:"Tom and Jerry come together as a duo in soft, high-quality plush. Accurate colors and expressions, perfect for fans of the classic cartoon." },
+      { name: "Bear Plushie", image: "IMAGES/bearplushie.png", priceSmall: 40.90, category: "animal", tags: ["bear"], description:"Classic teddy bear look in warm brown, wearing a checkered scarf. Super soft texture and firm shape. A comforting cuddle buddy." },
+      { name: "Whale Plushie", image: "IMAGES/whale.webp", priceSmall: 42.90, category: "animal", tags: ["Whale"], description:"Deep blue and white plush whale with a sleepy expression. Smooth finish and gentle texture, great for laying across a bed or hugging." },
+      { name: "Mango Plushie", image: "IMAGES/mango.webp", priceSmall: 34.90, category: "fruit", tags: ["mango"], description:"A bright yellow orange plush shaped like a mango with tiny limbs. Happy expression and fuzzy soft surface make it playful and cute." }
+
+    ];
+
+    let currentCategory = "all";
+    let filteredProducts = [...products];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function loadCartCount() {
+      const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById("cart-count").textContent = count;
+    }
+
+function renderProducts() {
+  const container = document.getElementById("products-container");
+  const noResultsEl = document.getElementById("no-results");
+  container.innerHTML = "";
+
+  if (filteredProducts.length === 0) {
+    noResultsEl.style.display = "block";
+    return;
+  } else {
+    noResultsEl.style.display = "none";
+  }
+
+  filteredProducts.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.className = "product";
+
+    productDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="product-img" />
+      <h3>${product.name}</h3>
+      <p class="price">Price: RM${product.priceSmall.toFixed(2)}</p>
+      <select class="size-select" aria-label="Select size for ${product.name}">
+        <option value="">Select Size</option>
+        <option value="Small">Small</option>
+        <option value="Large">Large</option>
+      </select>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    `;
+
+  productDiv.querySelector(".product-img").addEventListener("click", () => {
+    document.getElementById("modal-image").src = product.image;
+    document.getElementById("modal-title").textContent = product.name;
+    document.getElementById("modal-desc").textContent = product.description || "No description available.";
+    document.getElementById("product-modal").style.display = "flex";
+  });
+
+
+    const priceEl = productDiv.querySelector(".price");
+    const sizeSelect = productDiv.querySelector(".size-select");
+
+    sizeSelect.addEventListener("change", () => {
+      const selectedSize = sizeSelect.value;
+      let updatedPrice = product.priceSmall;
+      if (selectedSize === "Large") {
+        updatedPrice += 10.0;
+      }
+      priceEl.textContent = `Price: RM${updatedPrice.toFixed(2)}`;
+    });
+
+    productDiv.querySelector(".add-to-cart-btn").addEventListener("click", () => {
+      const selectedSize = sizeSelect.value;
+      addToCart(product, selectedSize);
+    });
+
+    container.appendChild(productDiv);
+  });
+}
+
+
+function addToCart(product, size) {
+  if (!size) {
+    alert("Please select a size first.");
+    return;
+  }
+
+  let price = product.priceSmall;
+  if (size === "Large") {
+    price += 10.0;
+  }
+
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existingIndex = existingCart.findIndex(
+    item => item.name === product.name && item.size === size
+  );
+
+  if (existingIndex !== -1) {
+    existingCart[existingIndex].quantity += 1;
+  } else {
+    existingCart.push({
+      name: product.name,
+      image: product.image,
+      size: size,
+      price: price,
+      quantity: 1,
+    });
+  }
+
+  // ✅ Save to localStorage
+  localStorage.setItem("cart", JSON.stringify(existingCart));
+
+  // ✅ Also update the global cart variable
+  cart = existingCart;
+
+  // ✅ Now this works correctly
+  loadCartCount();
+
+  alert(`${product.name} (${size}) added to cart!`);
+}
+
+    function filterProducts(category) {
+      if (category === "all") {
+        filteredProducts = [...products];
+      } else {
+        filteredProducts = products.filter(p => p.category === category || p.tags.includes(category));
+      }
+      renderProducts();
+    }
+
+function setupCategoryFilters() {
+  document.querySelectorAll(".sidebar summary").forEach(summary => {
+    summary.addEventListener("click", (e) => {
+      const category = summary.getAttribute("data-category");
+      currentCategory = category;
+      filterProducts(category);
+    });
+  });
+
+  document.querySelectorAll(".subcategory").forEach(subcat => {
+    subcat.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent summary from toggling again
+      const subcatCategory = subcat.getAttribute("data-category");
+      currentCategory = subcatCategory;
+      filterProducts(subcatCategory);
+    });
+  });
+}
+
+
+    function setupSort() {
+      const sortSelect = document.getElementById("sort-select");
+      sortSelect.addEventListener("change", () => {
+        if (sortSelect.value === "price-asc") {
+          filteredProducts.sort((a, b) => a.priceSmall - b.priceSmall);
+        } else if (sortSelect.value === "price-desc") {
+          filteredProducts.sort((a, b) => b.priceSmall - a.priceSmall);
+        }
+        renderProducts();
+      });
+    }
+
+    function setupSearch() {
+  const form = document.getElementById("search-form");
+  const input = document.getElementById("search-input");
+  
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const searchTerm = input.value.trim().toLowerCase();
+
+    if (searchTerm === "") {
+      filterProducts("all");
+      return;
+    }
+
+    filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(searchTerm)
+    );
+
+    renderProducts();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupCategoryFilters();
+  setupSort();
+  setupSearch(); // <--- this line is important!
+  loadCartCount();
+  filterProducts("all");
+
+  document.getElementById("close-modal").addEventListener("click", () => {
+  document.getElementById("product-modal").style.display = "none";
+});
+
+  // Auto expand ikut hash link
+  const hash = window.location.hash;
+  if (hash === "#animal-section") {
+    const summary = document.querySelector("summary[data-category='animal']");
+    if (summary) {
+      summary.parentElement.setAttribute("open", true);
+      summary.click(); 
+    }
+  }
+});
+
+  </script>
+</body>
+</html>
